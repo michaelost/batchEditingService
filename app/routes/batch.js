@@ -5,7 +5,20 @@ const batchRouter = express.Router();
 
 batchRouter.post('/batch', async function(req, res) {
   try {
-    console.log('post...'); 
+    const {
+      endpoint, 
+      payload,
+    } = req.body;
+
+    const {
+      url, 
+      httpType,
+    } = endpoint; 
+    
+    const {
+      parameters,        // [] of {}
+    } = payload;
+
     return res.json({
       success: true,
       message: 'batching',
